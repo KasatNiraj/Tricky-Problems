@@ -12,19 +12,16 @@ bool isPrime(int n)
     }
     return true ;
 }
-
+bool isPS(int N){
+    int root=sqrt(N);
+    return (root*root==N);
+}
 int exactly3Divisors(int N)
 {
-    int counter=0; //Initializing counter to zero
-    N = sqrt(N);
-        
-    for(int i=1;i<=N;i++) //running a loop from 1 to N
-    {
-        // A number N only has 3 divisors if it is a perfect square and its square root is a prime number,
-        //  and we know the number of perfect squares less than N which is sqrt(N),
-        // so just checking if i is prime or not
-        if(isPrime(i)) 
-        counter++;
+    int counter=0;
+    for(int i=1;i<=N;i++){              // A number N only has 3 divisors if it is a perfect square and its square root is a prime number,
+        if(isprime(sqrt(i)) && isPS(i)) //  and we know the number of perfect squares less than N which is sqrt(N),
+            counter++;                  // so just checking if i is prime or not
     }
-    return counter;
+    return counter;  
 }
